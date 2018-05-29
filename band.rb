@@ -3,7 +3,7 @@ require 'pry'
 
 class Band
 
-    attr_accessor :name
+    attr_accessor :name #band should be able to change name
     attr_reader :hometown #reader because you wouldn't want that to change
 
     ALL = []
@@ -29,6 +29,12 @@ class Band
       Concert.all.select do |concert|
         #binding.pry
         concert.band == self
+      end
+    end
+
+    def venues
+      self.concerts.select do |concert|
+        concert.venue
       end
     end
 
